@@ -2,7 +2,7 @@ local GAMES = {
     {
         Name = "Murder Mystery 2",
         GameId = 142823291,
-        Loader = "https://api.xhider.xyz/files/v4/loaders/4e4d65201222b0786875145b0ebbe82a.lua"
+        Loader = "https://vxezestudio.online/api/scripts/script_r0VeAauEuUxPg/stream/init"
     }
 }
 
