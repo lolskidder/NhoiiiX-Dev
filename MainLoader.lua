@@ -15,12 +15,12 @@ local function LoadGame()
                 local source = game:HttpGet(v.Loader)
                 local loader = loadstring(source)
 
-                assert(loader, "Không thể biên dịch loader")
+                assert(loader, "Không thể loader")
                 loader()
             end)
 
             if not success then
-                warn("[LunarX] Không thể tải " .. v.Name .. ": " .. tostring(result))
+                warn("[NhoiiiX] Không thể tải " .. v.Name .. ": " .. tostring(result))
             end
 
             return
