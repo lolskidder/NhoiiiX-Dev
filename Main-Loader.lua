@@ -8,9 +8,17 @@ if pid == 142823291 then -- MM2
 elseif pid == 98502499119821 then -- HWF
     loadstring(game:HttpGet("https://vxezestudio.online/api/scripts/script_58QYU7BTt9Dg/stream/init"))()
 
-elseif pid == 2753915549 -- Blox Fruits
-    loadstring(game:HttpGet("https://vxezestudio.online/api/scripts/script_Pa7uy5Z0mpKdN/stream/init"))()
+elseif pid == 85211729168715
+    or pid == 79091703265657
+    or pid == 100117331123089 then -- Pvp Blox Fruits
+    local ok, err = pcall(function()
+        loadstring(game:HttpGet("https://vxezestudio.online/api/scripts/script_Pa7uy5Z0mpKdN/stream/init"))()
+    end)
+
+    if not ok then
+        warn("Blox Fruits script error:", err)
+    end
 
 else
-    lp:Kick("Game not supported")
+    warn("Game not supported. PlaceId:", pid)
 end
