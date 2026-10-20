@@ -14,11 +14,6 @@ elseif pid == 85211729168715
     local ok, err = pcall(function()
         loadstring(game:HttpGet("https://vxezestudio.online/api/scripts/script_Pa7uy5Z0mpKdN/stream/init"))()
     end)
-
-    if not ok then
-        warn("Blox Fruits script error:", err)
-    end
-
 else
     warn("Game not supported. PlaceId:", pid)
 end
