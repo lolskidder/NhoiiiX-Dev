@@ -1,33 +1,47 @@
+
 local Players = game:GetService("Players")
 local lp = Players.LocalPlayer
 local pid = game.PlaceId
 
-if pid == 142823291 then -- MM2
-    loadstring(game:HttpGet("https://vxezestudio.online/api/scripts/script_r0VeAauEuUxPg/stream/init"))()
+local GameList = {
+    [114326934417838] = "https://vxezestudio.online/api/scripts/script_7duMHGZTfKaWU/stream/init", -- Break and Steal an Egg
+    [113290951185459] = "https://vxezestudio.online/api/scripts/script_82HVMJlLn6Omw/stream/init", -- Anime Dice
+    [142823291] = "https://vxezestudio.online/api/scripts/script_r0VeAauEuUxPg/stream/init", -- Murder Mystery 2
+    [98502499119821] = "https://vxezestudio.online/api/scripts/script_58QYU7BTt9Dg/stream/init", -- Heavyweight Fishing
+    [119091355492870] = "https://api.xhider.xyz/files/v4/loaders/130f93dd6546535517210dc28869d19a.lua", -- RockFruit
+    [82878101790702] = "https://api.xhider.xyz/files/v4/loaders/130f93dd6546535517210dc28869d19a.lua", -- RockFruit
+    [132854526011923] = "https://api.xhider.xyz/files/v4/loaders/130f93dd6546535517210dc28869d19a.lua", -- RockFruit
+    [85211729168715] = "BLOX_FRUITS_SELECTOR", -- Blox Fruits
+    [79091703265657] = "BLOX_FRUITS_SELECTOR", -- Blox Fruits
+    [100117331123089] = "BLOX_FRUITS_SELECTOR", -- Blox Fruits
+}
 
-elseif pid == 98502499119821 then -- HWF
-    loadstring(game:HttpGet("https://vxezestudio.online/api/scripts/script_58QYU7BTt9Dg/stream/init"))()
+local function loadUrl(url)
+    local ok, err = pcall(function()
+        local source = game:HttpGet(url)
+        local fn = assert(loadstring(source), "Không biên dịch được script")
+        fn()
+    end)
 
-elseif pid == 119091355492870
-    or pid == 82878101790702
-    or pid == 132854526011923 then -- RockFruit
-    loadstring(game:HttpGet("https://api.xhider.xyz/files/v4/loaders/130f93dd6546535517210dc28869d19a.lua"))()
+    if not ok then
+        warn("NhoiiiX Hub load error:", err)
+    end
+end
 
-elseif pid == 114326934417838 then -- break and steal an egg
-    loadstring(game:HttpGet("https://vxezestudio.online/api/scripts/script_7duMHGZTfKaWU/stream/init"))()
+local url = GameList[pid]
 
-elseif pid == 113290951185459 then -- Anime Dice
-    loadstring(game:HttpGet("https://vxezestudio.online/api/scripts/script_82HVMJlLn6Omw/stream/init"))()
-    
--- Blox Fruits
-elseif pid == 85211729168715
-    or pid == 79091703265657
-    or pid == 100117331123089 then
+if url == "BLOX_FRUITS_SELECTOR" then
+    local playerGui = lp:WaitForChild("PlayerGui")
+
+    local oldGui = playerGui:FindFirstChild("NhoiiiXHubSelector")
+    if oldGui then
+        oldGui:Destroy()
+    end
 
     local gui = Instance.new("ScreenGui")
     gui.Name = "NhoiiiXHubSelector"
     gui.ResetOnSpawn = false
-    gui.Parent = lp:WaitForChild("PlayerGui")
+    gui.Parent = playerGui
 
     local frame = Instance.new("Frame")
     frame.Size = UDim2.fromOffset(260, 160)
@@ -37,7 +51,7 @@ elseif pid == 85211729168715
 
     Instance.new("UICorner", frame).CornerRadius =
         UDim.new(0, 12)
-    
+
     local title = Instance.new("TextLabel")
     title.Size = UDim2.new(1, 0, 0, 45)
     title.BackgroundTransparency = 1
@@ -47,7 +61,7 @@ elseif pid == 85211729168715
     title.Font = Enum.Font.GothamBold
     title.Parent = frame
 
-    local function makeButton(text, y, url)
+    local function makeButton(text, y, hubUrl)
         local button = Instance.new("TextButton")
         button.Size = UDim2.new(1, -30, 0, 40)
         button.Position = UDim2.new(0, 15, 0, y)
@@ -62,32 +76,43 @@ elseif pid == 85211729168715
             UDim.new(0, 8)
 
         button.Activated:Connect(function()
-            gui:Destroy()
+            button.Active = false
+            button.Text = "Loading..."
 
             local ok, err = pcall(function()
-                local source = game:HttpGet(url)
-                local fn = loadstring(source)
-                assert(fn, "Không biên dịch được script")
+                local source = game:HttpGet(hubUrl)
+                local fn = assert(loadstring(source),
+                    "Load error")
+
+                gui:Destroy()
                 fn()
             end)
 
             if not ok then
-                warn("Hub load error:", err)
+                warn("NhoiiiX Hub load error:", err)
+
+                if gui.Parent then
+                    button.Active = true
+                    button.Text = text
+                end
             end
         end)
     end
 
     makeButton(
-        "NhoiiiX PVP",
+        "Aimbot PVP",
         55,
         "https://vxezestudio.online/api/scripts/script_Pa7uy5Z0mpKdN/stream/init"
     )
 
     makeButton(
-        "NhoiiiX Farm",
+        "Main Farm",
         105,
         "https://vxezestudio.online/api/scripts/script_KSNOqPAlOI2lc/stream/init"
     )
+
+elseif url then
+    loadUrl(url)
 
 else
     warn("Game not supported. PlaceId:", pid)
