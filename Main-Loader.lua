@@ -12,6 +12,9 @@ elseif pid == 119091355492870
     or pid == 82878101790702
     or pid == 132854526011923 then -- RockFruit
     loadstring(game:HttpGet("https://api.xhider.xyz/files/v4/loaders/130f93dd6546535517210dc28869d19a.lua"))()
+
+elseif pid == 114326934417838
+    loadstring(game:HttpGet("https://vxezestudio.online/api/scripts/script_7duMHGZTfKaWU/stream/init"))()
     
 -- Blox Fruits: hiện UI chọn hub
 elseif pid == 85211729168715
