@@ -19,7 +19,7 @@ elseif pid == 114326934417838 then -- break and steal an egg
 elseif pid == 113290951185459 then
     loadstring(game:HttpGet("https://vxezestudio.online/api/scripts/script_82HVMJlLn6Omw/stream/init"))()
     
--- Blox Fruits: hiện UI chọn hub
+-- Blox Fruits
 elseif pid == 85211729168715
     or pid == 79091703265657
     or pid == 100117331123089 then
