@@ -83,7 +83,7 @@ elseif pid == 85211729168715
     makeButton(
         "NhoiiiX Farm",
         105,
-        "https://api.xhider.xyz/files/v4/loaders/b01d2c6ea893d4d33332237e62fcbba7.lua"
+        "https://vxezestudio.online/api/scripts/script_KSNOqPAlOI2lc/stream/init"
     )
 
 else
