@@ -16,7 +16,7 @@ elseif pid == 119091355492870
 elseif pid == 114326934417838 then -- break and steal an egg
     loadstring(game:HttpGet("https://vxezestudio.online/api/scripts/script_7duMHGZTfKaWU/stream/init"))()
 
-elseif pid == 113290951185459 then
+elseif pid == 113290951185459 then -- Anime Dice
     loadstring(game:HttpGet("https://vxezestudio.online/api/scripts/script_82HVMJlLn6Omw/stream/init"))()
     
 -- Blox Fruits
