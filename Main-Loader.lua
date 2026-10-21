@@ -9,6 +9,7 @@ local GameList = {
     [142823291] = "https://vxezestudio.online/api/scripts/script_r0VeAauEuUxPg/stream/init", -- Murder Mystery 2
     [98502499119821] = "https://vxezestudio.online/api/scripts/script_58QYU7BTt9Dg/stream/init", -- Heavyweight Fishing
     [107778070777162] = "https://vxezestudio.online/api/scripts/script_LlZrCUbDIL2mG/stream/init", -- Steal A Egg
+    [9872472334] = "https://api.xhider.xyz/files/v4/loaders/4955e760c9f9b495f25dcdb2ea54d7e5.lua", -- Evade
     [119091355492870] = "https://api.xhider.xyz/files/v4/loaders/130f93dd6546535517210dc28869d19a.lua", -- RockFruit
     [82878101790702] = "https://api.xhider.xyz/files/v4/loaders/130f93dd6546535517210dc28869d19a.lua", -- RockFruit
     [132854526011923] = "https://api.xhider.xyz/files/v4/loaders/130f93dd6546535517210dc28869d19a.lua", -- RockFruit
